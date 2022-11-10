@@ -237,9 +237,27 @@ class _MyFormPageState extends State<MyFormPage> {
                                           children: <Widget>[
                                             Center(child: const Text('Informasi Data')),
                                             SizedBox(height: 20),
-                                            Text(
-                                              'Judul: ' + _namaLengkap
-                                              ),
+                                            Column(mainAxisAlignment: MainAxisAlignment.center,
+                                            children: <Widget> [
+                                              Text('Nama Lengkap: ' + _namaLengkap),
+                                              Text('Umur: ' + umur.toString()),
+                                              
+                                              if (jenjangSarjana) 
+                                                const Text("Jenjang : Sarjana"),
+                                              if (jenjangDiploma)
+                                                const Text("Jenjang : Diploma"),
+                                              if (jenjangDoktor)
+                                                const Text("Jenjang : Doktor"),
+                                              if (jenjangMagister)
+                                                const Text("Jenjang : Magister"),
+
+                                              Text("Kelas: " + kelasPBP),
+
+                                              if (_nilaiSwitch)
+                                                const Text("Practice mode : True"),
+                                              if (!_nilaiSwitch)
+                                                const Text("Practice mode : False")
+                                            ]),
                                             TextButton(
                                               onPressed: () {
                                                 Navigator.pop(context);
